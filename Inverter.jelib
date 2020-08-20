@@ -1,0 +1,105 @@
+# header information:
+HInverter|9.07
+
+# Views:
+Vicon|ic
+Vlayout|lay
+Vschematic|sch
+
+# External Libraries:
+
+Lspiceparts|spiceparts
+
+# Technologies:
+Tmocmos|ScaleFORmocmos()D300.0|mocmosAnalog()BT|mocmosNumberOfMetalLayers()I3
+
+# Cell inv;1{ic}
+Cinv;1{ic}||artwork|1597954779243|1597955143632|E
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NTriangle|art@1||4.5|1|6|6|RRR|
+NCircle|art@2||8|1|1|1||
+Nschematic:Bus_Pin|pin@0||-1.5|1||||
+Nschematic:Wire_Pin|pin@1||1.5|1||||
+Nschematic:Bus_Pin|pin@2||11.5|1|||RR|
+Nschematic:Wire_Pin|pin@3||8.5|1||||
+Aschematic:wire|net@0|||0|pin@1||1.5|1|pin@0||-1.5|1
+Aschematic:wire|net@1|||1800|pin@3||8.5|1|pin@2||11.5|1
+Ein||D5G2;|pin@0||U
+Eout||D5G2;|pin@2||U
+X
+
+# Cell inv;1{lay}
+Cinv;1{lay}||mocmos|1597955205092|1597956857520||DRC_last_good_drc_area_date()G1597956890179|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1597956890179
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-P-Active-Con|contact@0||-25|-4.5|1|7||
+NMetal-1-P-Active-Con|contact@1||-15|-4.5|1|7||
+NMetal-1-N-Active-Con|contact@2||-25|-40.5|1|1||
+NMetal-1-N-Active-Con|contact@3||-15|-40.5|1|1||
+NMetal-1-Polysilicon-1-Con|contact@4||-31.5|-24||||
+NN-Transistor|nmos@0||-20|-40.5|3||R|
+NMetal-1-Pin|pin@0||-15.5|-40.5||||
+NPolysilicon-1-Pin|pin@1||-20|-35.5||||
+NMetal-1-Pin|pin@2||-8.5|-24||||
+NMetal-1-Pin|pin@3||-15.5|-24||||
+NPolysilicon-1-Pin|pin@4||-20|-24||||
+NP-Transistor|pmos@0||-20|-4.5|9||R||SIM_spice_model(D5G1;X3.5;Y-2.5;)SPMOS
+NMetal-1-P-Well-Con|substr@0||-20|-61.5|17|1||
+NMetal-1-N-Well-Con|well@0||-20|19.5|17|1||
+AP-Active|net@0|||S1800|contact@0||-25|-4.5|pmos@0|diff-top|-23.75|-4.5
+AMetal-1|net@1||2|S900|well@0||-25|19.5|contact@0||-25|-4.5
+AP-Active|net@2|||S0|contact@1||-15|-4.5|pmos@0|diff-bottom|-16.25|-4.5
+AN-Active|net@3|||S1800|contact@2||-25|-41|nmos@0|diff-top|-23.75|-41
+AN-Active|net@4|||S0|contact@3||-15|-40.5|nmos@0|diff-bottom|-16.25|-40.5
+AMetal-1|net@5||2|S2700|substr@0||-25|-61.5|contact@2||-25|-40.5
+AMetal-1|net@6||2|S0|contact@3||-15|-40.5|pin@0||-15.5|-40.5
+APolysilicon-1|net@9|||S0|nmos@0|poly-right|-20|-35.5|pin@1||-20|-35.5
+AMetal-1|net@10||2|S900|contact@1||-15.5|-4.5|pin@3||-15.5|-24
+AMetal-1|net@11||2|S900|pin@3||-15.5|-24|pin@0||-15.5|-40.5
+AMetal-1|net@12|||S0|pin@2||-8.5|-24|pin@3||-15.5|-24
+APolysilicon-1|net@13|||S900|pmos@0|poly-left|-20|-12.5|pin@4||-20|-24
+APolysilicon-1|net@14|||S900|pin@4||-20|-24|pin@1||-20|-35.5
+APolysilicon-1|net@15|||S0|pin@4||-20|-24|contact@4||-31.5|-24
+Egnd||D5G2;|substr@0||U
+Ein||D5G2;|contact@4||U
+Eout||D5G2;|pin@2||U
+Evdd||D5G2;|well@0||U
+X
+
+# Cell inv;1{sch}
+Cinv;1{sch}||schematic|1597954147030|1597954779247|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NOff-Page|conn@0||-19|-1||||
+NOff-Page|conn@1||-6|-1||||
+NGround|gnd@0||-12|-12||||
+Iinv;1{ic}|inv@0||1|17|||D5G4;
+NTransistor|nmos@0||-14|-5|||R||ATTR_length(D5G0.5;X-0.5;Y-1;)D2.0|ATTR_width(D5G1;X0.5;Y-1;)D6.0|SIM_spice_model(D5G1;Y-4;)SNMOS
+NWire_Pin|pin@0||-15|-1||||
+NWire_Pin|pin@1||-12|-1||||
+NTransistor|pmos@0||-14|3|||R|2|ATTR_length(D5G0.5;X-0.5;Y-1;)D2.0|ATTR_width(D5G1;X0.5;Y-1;)D12.0|SIM_spice_model(D5G1;Y-4;)SPMOS
+NPower|pwr@0||-12|10||||
+Awire|net@0|||900|pwr@0||-12|10|pmos@0|d|-12|5
+Awire|net@3|||900|nmos@0|s|-12|-7|gnd@0||-12|-10
+Awire|net@4|||900|pmos@0|g|-15|3|pin@0||-15|-1
+Awire|net@5|||900|pin@0||-15|-1|nmos@0|g|-15|-5
+Awire|net@6|||1800|conn@0|y|-17|-1|pin@0||-15|-1
+Awire|net@7|||900|pmos@0|s|-12|1|pin@1||-12|-1
+Awire|net@8|||900|pin@1||-12|-1|nmos@0|d|-12|-3
+Awire|net@9|||1800|pin@1||-12|-1|conn@1|a|-8|-1
+Ein||D5G2;|conn@0|a|U
+Eout||D5G2;|conn@1|y|U
+X
+
+# Cell inv_sim;1{sch}
+Cinv_sim;1{sch}||schematic|1597957749543|1597958036027|
+Ispiceparts:Pulse;1{ic}|Pulse@0||-21.5|-6|||D5G4;|ATTR_DCVoltage(D5G0.5;NPY-2;)S1V|ATTR_DelayTime(D5G0.5;NPY0.5;)S0ns|ATTR_FallTime(D5G0.5;NPY-0.5;)S200ps|ATTR_InitialVoltage(D5G0.5;NPY1.5;)I0|ATTR_Period(D5G0.5;NPY-1.5;)S6ns|ATTR_PulseVoltage(D5G0.5;NPY1;)S5V|ATTR_PulseWidth(D5G0.5;NPY-1;)S3ns|ATTR_RiseTime(D5G0.5;NP)S200ps
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NGround|gnd@0||-21.5|-21||||
+Iinv;1{ic}|inv@0||-5|-1|||D5G4;
+NWire_Pin|pin@0||-6.5|-3||||
+NWire_Pin|pin@1||17.5|0||||
+Ngeneric:Invisible-Pin|pin@2||-14|-9.5|||||SIM_spice_card(D5G1;)S[vdd vdd 0 DC 5,.tran 50n]
+Awire|in|D5G1;||1800|Pulse@0|plus|-21.5|-3|pin@0||-6.5|-3
+Awire|net@0|||2700|gnd@0||-21.5|-19|Pulse@0|minus|-21.5|-9
+Awire|net@2|||900|inv@0|in|-6.5|0|pin@0||-6.5|-3
+Awire|out|D5G1;||1800|inv@0|out|6.5|0|pin@1||17.5|0
+X
